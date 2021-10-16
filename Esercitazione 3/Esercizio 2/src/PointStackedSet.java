@@ -47,13 +47,28 @@ public class PointStackedSet {
         }
     }
 
-    public Punto pop() {
+    public Punto pop(int numeroPuntiDaEstrarre) {
         /*
         * Anche l'estrazione è semplice. Il garbage collector ci permette di non curarci dell'oggetto dereferenziato
         * in quanto la pulizia dell'heap è svolta in automatico.
         * */
+
+        /*
+        * Volendo aver la possibilità di estrarre più punti contemporaneamente accetto come parametro il numero di punti
+        * da estrarre. A questo punto assegnerò a toReturn il riferimento del primo Punto, mentre ad insieme di punti
+        * il riferimento del numeroPuntiDaEstrarre-esimo punto + 1.
+        * */
+        int i=0;
+        Punto scorriLista;
+
+        scorriLista = insiemeDiPunti;
+        while(i < numeroPuntiDaEstrarre) {
+            scorriLista = scorriLista.getRef();
+            i++;
+        }
+
         Punto toReturn = insiemeDiPunti;
-        insiemeDiPunti = toReturn.getRef();
+        insiemeDiPunti = scorriLista;
 
         return toReturn;
     }
