@@ -1,9 +1,9 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Gabbia {
     private CreatoreDiAnimali factory;
-    private List<Animale>  animali;
+    private List<Animale> animali;
 
     public Gabbia(CreatoreDiAnimali creatoreDiAnimali) {
         this.factory = creatoreDiAnimali;
